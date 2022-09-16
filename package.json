@@ -16,8 +16,8 @@
     "test": "jest",
     "lint": "eslint lib/*.ts __tests__/* --ext .ts",
     "lint:fix": "eslint lib/*.ts __tests__/* --ext .ts --fix",
-    "build": "tsc",
-    "prepare": "tsc",
+    "build": "tsc && rm -rf ./dist/data/ && cp -r ./lib/data/ ./dist/data/",
+    "prepare": "npm run build",
     "semantic-release": "semantic-release"
   },
   "repository": {
