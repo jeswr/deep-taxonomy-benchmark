@@ -1,0 +1,96 @@
+{
+  "name": "deep-taxonomy-benchmark",
+  "version": "1.0.0",
+  "description": "Generate the Deep Taxonomy Benchmark for testing RDF Reasoners",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges",
+    "test": "jest",
+    "lint": "eslint lib/* __tests__/* --ext .ts",
+    "lint:fix": "eslint lib/* __tests__/* --ext .ts --fix",
+    "build": "tsc",
+    "prepare": "tsc",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeswr/deep-taxonomy-benchmark.git"
+  },
+  "keywords": [
+    "RDF",
+    "Reasoning",
+    "Deep",
+    "Taxonomy"
+  ],
+  "author": "Jesse Wright <jesse.wright@anu.edu.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeswr/deep-taxonomy-benchmark/issues"
+  },
+  "homepage": "https://github.com/jeswr/deep-taxonomy-benchmark#readme",
+  "dependencies": {
+    "n3": "^1.16.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.8",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.3",
+    "pre-commit": "^1.2.2",
+    "semantic-release": "^19.0.5",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.8.3",
+    "@types/n3": "^1.10.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json-summary", 
+      "text",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+  "pre-commit": [
+    "lint",
+    "build",
+    "test"
+  ],
+  "release": {
+    "branches": [
+      "main",
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "next",
+      {
+        "name": "alpha",
+        "prerelease": true
+      },
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
