@@ -1,5 +1,5 @@
 import {
-  generateDeepTaxonomy, getFoaf, getTimbl, getTimblAndFoaf,
+  generateDeepTaxonomy, getFoaf, getOwl, getRdfs, getTimbl, getTimblAndFoaf,
 } from '../lib';
 
 describe('generateDeepTaxonomy', () => {
@@ -12,20 +12,12 @@ describe('generateDeepTaxonomy', () => {
   });
 });
 
-describe('getFoaf', () => {
-  it('should have 631 triples', async () => {
-    expect((await getFoaf()).size).toEqual(631);
-  });
-});
-
-describe('getTimbl', () => {
-  it('should have 330 triples', async () => {
-    expect((await getTimbl()).size).toEqual(330);
-  });
-});
-
-describe('getTimblAndFoaf', () => {
-  it('should have 961 triples', async () => {
-    expect((await getTimblAndFoaf()).size).toEqual(961);
-  });
+it.each([
+  ['getFoaf', 631, getFoaf],
+  ['getTimbl', 330, getTimbl],
+  ['getTimblAndFoaf', 961, getTimblAndFoaf],
+  ['getOwl', 257, getOwl],
+  ['getRdfs', 48, getRdfs],
+])('%s should have %s triples', async (_, size, fn) => {
+  expect((await fn()).size).toEqual(size);
 });
