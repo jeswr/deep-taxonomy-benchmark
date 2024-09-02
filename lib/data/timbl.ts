@@ -345,4 +345,4 @@ l:en schema:name "English"@en.
 l:fr schema:name "French"@en.
 
 l:it schema:name "italiano"@it.
-`
+`;

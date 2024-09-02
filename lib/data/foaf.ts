@@ -697,4 +697,4 @@ foaf:status
   rdfs:domain foaf:Agent ;
   rdfs:range rdfs:Literal ;
   rdfs:isDefinedBy foaf: .
-`
+`;
