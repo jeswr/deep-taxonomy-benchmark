@@ -1,4 +1,4 @@
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+export const data = `@prefix log: <http://www.w3.org/2000/10/swap/log#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -440,3 +440,4 @@
 {
    ?c2 rdfs:subClassOf ?c1 .
 } .
+`;

@@ -1,14 +1,14 @@
-import * as path from 'path';
-import derference from 'rdf-dereference-store';
+import { Parser, Store } from 'n3';
 
-const timbl = path.join(__dirname, 'data', 'timbl.ttl');
-const foaf = path.join(__dirname, 'data', 'foaf.ttl');
-const owl = path.join(__dirname, 'data', 'owl.n3');
-const rdfs = path.join(__dirname, 'data', 'rdfs.n3');
+import { data as foaf } from './data/foaf';
+import { data as owl } from './data/owl';
+import { data as rdfs } from './data/rdfs';
+import { data as timbl } from './data/timbl';
 
-export const getTimbl = () => derference(timbl, { localFiles: true }).then(({ store }) => store);
-export const getFoaf = () => derference(foaf, { localFiles: true }).then(({ store }) => store);
-export const getTimblAndFoaf = () => derference([timbl, foaf], { localFiles: true })
-  .then(({ store }) => store);
-export const getOwl = () => derference(owl, { localFiles: true }).then(({ store }) => store);
-export const getRdfs = () => derference(rdfs, { localFiles: true }).then(({ store }) => store);
+export const getTimbl = () => new Store(new Parser().parse(timbl));
+export const getFoaf = () => new Store(new Parser().parse(foaf));
+export const getTimblAndFoaf = () => new Store(
+  [...new Parser().parse(timbl), ...new Parser().parse(foaf)],
+);
+export const getOwl = () => new Store(new Parser({ format: 'n3' }).parse(owl));
+export const getRdfs = () => new Store(new Parser({ format: 'n3' }).parse(rdfs));
