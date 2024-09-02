@@ -1,4 +1,4 @@
-@prefix : <#>.
+export const data = `@prefix : <#>.
 @prefix acl: <http://www.w3.org/ns/auth/acl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix ldp: <http://www.w3.org/ns/ldp#>.
@@ -345,3 +345,4 @@ l:en schema:name "English"@en.
 l:fr schema:name "French"@en.
 
 l:it schema:name "italiano"@it.
+`

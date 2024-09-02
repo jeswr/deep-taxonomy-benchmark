@@ -1,4 +1,4 @@
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+export const data = `@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dc11: <http://purl.org/dc/elements/1.1/> .
 @prefix wot: <http://xmlns.com/wot/0.1/> .
@@ -697,3 +697,4 @@ foaf:status
   rdfs:domain foaf:Agent ;
   rdfs:range rdfs:Literal ;
   rdfs:isDefinedBy foaf: .
+`

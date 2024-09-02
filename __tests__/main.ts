@@ -19,5 +19,5 @@ it.each([
   ['getOwl', 257, getOwl],
   ['getRdfs', 48, getRdfs],
 ])('%s should have %s triples', async (_, size, fn) => {
-  expect((await fn()).size).toEqual(size);
+  expect((fn()).size).toEqual(size);
 });
